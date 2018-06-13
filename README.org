@@ -1,0 +1,6 @@
+#+TITLE: Dotfiles
+#+BEGIN_SRC 
+git clone https://github.com/martinguenster/dotfiles.git ~/.dotfiles
+stow git
+#+END_SRC
+
