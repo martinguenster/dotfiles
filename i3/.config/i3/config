@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -154,3 +154,45 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+
+
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+
+
+
+set_from_resource $bg i3wm.color0  # Default Background - Lighter Background (Used for status bars)
+set_from_resource $bgs i3wm.color2  # Selection Background
+# set_from_resource $name color3  # Comments, Invisibles, Line Highlighting
+set_from_resource $fgs i3wm.color4  # Dark Foreground (Used for status bars)
+set_from_resource $fg i3wm.color5  # Default Foreground, Caret, Delimiters, Operators
+set_from_resource $fgl i3wm.color6  # Light Foreground (Not often used)
+set_from_resource $fgll i3wm.color7  # Light Background (Not often used)
+# set_from_resource $fg color8  # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+# set_from_resource $fg color9  # Integers, Boolean, Constants, XML Attributes, Markup Link Url
+# set_from_resource $fg color10 # Classes, Markup Bold, Search Text Background
+# set_from_resource $fg color11 # Strings, Inherited Class, Markup Code, Diff Inserted
+# set_from_resource $fg color12 # Support, Regular Expressions, Escape Characters, Markup Quotes
+# set_from_resource $fg color13 # Functions, Methods, Attribute IDs, Headings
+# set_from_resource $fg color14 # Keywords, Storage, Selector, Markup Italic, Diff Changed
+# set_from_resource $fg color15 # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+
+# class                 border  backgr. text  indicator child_border
+client.focused          $bg     $bgs    $fgll $bgs      $bgs
+client.focused_inactive $bg     $bg     $fg   $bg       $bg
+client.unfocused        $bg     $bg     $fgll $bg       $bg
+client.urgent           $bg     $bg     $fg   $bg       $bg
+client.placeholder      $bg     $bg     $fg   $bg       $bg
+
+client.background       $bg
+
+# PROTIP: You can also dynamically set dmenu's colors this way:
+#bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
+
+exec --no-startup-id wal -i media/images/wallpaper/color.jpg
